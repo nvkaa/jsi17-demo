@@ -35,7 +35,14 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
+
         cardTop.appendChild(star);
+        // cardTop.appendChild(wish);
         cardTop.appendChild(heart);
 
 
@@ -54,6 +61,8 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
+        itemCard.appendChild(wish);
 
         biryani.appendChild(itemCard);
         
@@ -76,6 +85,11 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
@@ -95,6 +109,7 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
         
         chicken.appendChild(itemCard)
 
@@ -116,6 +131,11 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
@@ -135,6 +155,7 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
         
         paneer.appendChild(itemCard)
 
@@ -156,6 +177,11 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
@@ -175,6 +201,7 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
 
         
         vegetable.appendChild(itemCard)
@@ -197,6 +224,11 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
@@ -216,6 +248,7 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
 
         
         chinese.appendChild(itemCard)
@@ -238,6 +271,11 @@ function displayItems(){
         heart.setAttribute('class','fa fa-heart-o add-to-cart');
         heart.setAttribute('id',item.id)
 
+        var wish = document.createElement('i');
+        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('id','wish');
+        wish.innerText= 'Add to wishlist';
+
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
 
@@ -257,6 +295,7 @@ function displayItems(){
         itemCard.appendChild(img);
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemPrice);
+        itemCard.appendChild(wish);
 
         southIndian.appendChild(itemCard)
 
@@ -297,7 +336,7 @@ selectTaste();
 
 
 document.querySelectorAll('.add-to-cart').forEach(item=>{
-    item.addEventListener('click',addToCart)
+    item.addEventListener('click', addToCart)
 })
 
 var cartData= [];
@@ -312,7 +351,11 @@ function addToCart(){
         cartData= [...cartData,itemObj];
     }
     else if(index > -1){
-        alert("Added to cart!");
+        document.getElementById(itemObj.id).classList.remove('toggle-heart');
+        
+        // let ioli = cartData.length()-1
+        // cartData= cartData.splice(ioli, 1);
+        // alert("Already added to cart")
     }
     
     document.getElementById('cart-plus').innerText=
@@ -485,16 +528,30 @@ function addEvents(){
     })
 }
 
+
 document.getElementById('add-address').addEventListener('click',addAddress);
 
 document.getElementById('m-add-address').addEventListener('click',addAddress);
 
+
+
 function addAddress(){
-    var address= prompt('Enter your address','');
+    var address= prompt('Enter your address');
+    
+    console.log(window.address);
     if(address){
         document.getElementById('add-address').innerText= ' ' + address;
+        // localStorage.setItem('address', JSON.parse(address))
     }
     else{
         alert("Address not added")
     }
 }
+
+document.getElementById("order-rdr").addEventListener("click", () => {
+    window.location='./order.html'
+})
+
+// document.getElementById("cart-plus").addEventListener("click", () => {
+//     window.location='./order.html'
+// })

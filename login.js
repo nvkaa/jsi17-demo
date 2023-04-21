@@ -10,10 +10,11 @@ import {
   signOut, 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,  
+  
 } 
   from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
-import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -132,6 +133,7 @@ saveData.addEventListener('click', (e) => {
           // Data saved successfully!
           alert('user created successfully');
           
+          
         })
         .catch((error) => {
           // The write failed...
@@ -148,11 +150,12 @@ saveData.addEventListener('click', (e) => {
 })
 
 getData.addEventListener('click', (e) => {
-
+  // firebase.initializeApp(firebaseConfig)
   let email = document.getElementById('l-email').value;
   let password = document.getElementById('l-password').value;
   const dbRef = ref(getDatabase());
-  dbRef.once('val', (snapshot) => {
+  var firebaseRef = app.database.ref().child('login');
+  firebaseRef.once('val', (snapshot) => {
     console.log(snapshot.val());})
 
   // signInWithEmailAndPassword(auth, email, password)
