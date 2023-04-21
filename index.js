@@ -36,7 +36,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -86,7 +86,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -132,7 +132,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -178,7 +178,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -225,7 +225,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -272,7 +272,7 @@ function displayItems(){
         heart.setAttribute('id',item.id)
 
         var wish = document.createElement('i');
-        wish.setAttribute('class','fa fa-star');
+        wish.setAttribute('class','fa-regular fa-star');
         wish.setAttribute('id','wish');
         wish.innerText= 'Add to wishlist';
 
@@ -349,13 +349,17 @@ function addToCart(){
     if(index=== -1){
         document.getElementById(itemObj.id).classList.add('toggle-heart');
         cartData= [...cartData,itemObj];
+        console.log(cartData);
     }
-    else if(index > -1){
+    else if (index > -1){
+        // console.log(index);
         document.getElementById(itemObj.id).classList.remove('toggle-heart');
+        // console.log(cartData.length);
+        cartData.splice(index, 1);
+        console.log(cartData);
         
-        // let ioli = cartData.length()-1
-        // cartData= cartData.splice(ioli, 1);
-        // alert("Already added to cart")
+        
+        alert("Already added to cart");
     }
     
     document.getElementById('cart-plus').innerText=
