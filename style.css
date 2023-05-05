@@ -135,7 +135,7 @@ body{
 .food-items{
     display: none;
 }
-.cart-toggle{
+.cart-toggle, .wish-toggle{
     display: block;
 }
 .util i,.user i{
@@ -200,7 +200,7 @@ body{
     font-size: 14px;
     border-radius: 15px;
 }
-.fa-heart-o{
+.fa-heart{
     padding: 6px;
     border-radius: 50%;
     background: white;
@@ -235,10 +235,10 @@ color: white;
 .food-items{
     display: none;
 }
-.cart-toggle{
+.cart-toggle, .wish-toggle {
     display: none;
 }
-#cart-page{
+#cart-page, #wish-page{
     background: white;
     margin: 40px 10px;
     margin-right: 50px;
@@ -246,17 +246,17 @@ color: white;
     padding-bottom: 30px;
     position: relative;
 }
-#cart-title{
+#cart-title, #wish-title{
     font-size: 35px;
     margin: 0;
     color: indianred;
 }
-#cart-page table{
+#cart-page table, #wish-page table{
     width: 100%;
     margin-top: 20px;
     text-align: center;
 }
-#cart-page table thead td{
+#cart-page table thead td, #wish-page table thead td{
     font-size: 25px;
     padding-bottom: 10px;
 }
@@ -274,7 +274,8 @@ color: white;
     margin: 15px 0;
     cursor: pointer;
 }
-#cart-page table tbody td{
+#cart-page table tbody td,
+#wish-page table tbody td{
     padding: 10px 0;
     font-size: 20px;
 }
@@ -289,7 +290,7 @@ color: white;
     cursor: pointer;
     margin: 0 5px;
 }
-#cart-page table tbody img{
+#cart-page table tbody img, #wish-page table tbody img{
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -367,7 +368,7 @@ color: white;
 #biryani{
     margin-top: 10px;
 }
-#m-total-amount{
+#m-total-amount, #m-total{
     display: none;
 }
 
@@ -520,7 +521,7 @@ color: white;
         display: inline-block;
         font-family: 'Aclonica', sans-serif;
     }
-    #m-total-amount{
+    #m-total-amount, #m-total{
         display: inline-block;
         color: lightcoral;
         padding: 5px 10px;

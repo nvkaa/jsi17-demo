@@ -11,9 +11,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,  
   
-} 
-  from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-
+}  from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
