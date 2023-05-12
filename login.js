@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
 import { 
@@ -12,7 +13,7 @@ import {
   signInWithEmailAndPassword,  
   
 }  from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import { getDatabase, ref, child, get, set, onValue  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,14 +32,12 @@ const firebaseConfig = {
 };
 
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider(app);
-const database = getDatabase(app);
-
+const db = getDatabase(app);
 
 
 
@@ -123,7 +122,7 @@ saveData.addEventListener('click', (e) => {
           const user = userCredential.user;
           // ... user.uid
           // save data into real time database
-          set(ref(database, 'users/' + user.uid), {
+          set(ref(db, 'users/' + user.uid), {
               email: email,
               password: password
           })
@@ -148,51 +147,37 @@ saveData.addEventListener('click', (e) => {
 })
 
 getData.addEventListener('click', (e) => {
-  // firebase.initializeApp(firebaseConfig)
-  let email = document.getElementById('l-email').value;
-  let password = document.getElementById('l-password').value;
-  const dbRef = ref(getDatabase());
-  var firebaseRef = app.database.ref().child('login');
-  firebaseRef.once('val', (snapshot) => {
-    console.log(snapshot.val());})
+  
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
 
-  // signInWithEmailAndPassword(auth, email, password)
-  // .then((userCredential) => {
-  //   // Signed in
-  //   // var user = userCredential.user;
-  //   get(child(dbRef, `users/${userId}`))
-  //   .then((snapshot) => {
-  //     console.log(snapshot.val());
-
-  //     if (snapshot.exists()) {
-  //       console.log(snapshot.val());
-  //       var lgDate = new Date()
-  //       update(ref(database, 'users/' + user.uid), {
-  //       last_login: lgDate,
-  //       })
-  //       alert('log in successfully')
-  //     location.assign("./index.html")
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //   })    
-  // .then(() => {
-  //    //data saved successfully
-     
-
-     
-  //    })
-  //    .catch((error) => {
-  //         //the write failed
-  //         alert(error);
-  //         alert("login failed");
-  //    })
-  // })
-  // .catch((error) => {
-  //   var errorCode = error.code;
-  //   var errorMessage = error.message;
-  // });
+    //save log in details into real time database
+    var lgDate = new Date()
+    update(ref(database, 'users/' + user.uid), {
+     last_login: lgDate,
+    })
+    .then(() => {
+     //data saved successfully
+     alert('user created successfully')
+     })
+     .catch((error) => {
+          //the write failed
+          alert(error);
+          alert("login failed");
+     })
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
 })
+
+
+  
+
 // signOut.addEventListener('click', (e) => {
 //   signOut(auth).then(() => {
 //   // Sign-out successful.

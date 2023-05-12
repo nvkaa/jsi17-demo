@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
-    <title>Food Website</title>
+    <title>Affoodable</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -19,7 +19,7 @@
             </a>
             <div class="menu-item">
                 <a href="index.html" >Home</a>
-                <a aria-current="page" href="#scrollDown">About</a>
+                <!-- <a aria-current="page" href="#scrollDown">About</a> -->
                 <a href="#" id="order-rdr">Your Orders</a>
                 <a href="#" id="dispWish">Wishlists</a>
                 <a aria-current="page" href="#scrollDown">Contact</a>
@@ -29,12 +29,12 @@
         <div id="food-container">
             <div id="header">
                 <div class="add-box">
-                    <i class="fa fa-map-marker your-address" id="add-address"> Your Address</i>
+                    <i class="fa fa-map-marker your-address" id="add-address"> <span class="ur-address">Your Address</span></i>
                 </div>
                 <div class="util">
-                    <i class="fa fa-search"> Search</i>
-                    <i class="fa fa-tags"> Offers</i>
-                    <i class="fa fa-cart-plus" id="cart-plus">0 Items</i>
+                    <i class="fa fa-search"> <span class="search"> Search</span> </i>
+                    <i class="fa fa-tags"> <span class="offers"> Offers</span></i>
+                    <i class="fa fa-cart-plus"> <span id="cart-plus">0 Items</span> </i>
                 </div>
             </div>
             <div id="food-items" class="d-food-items">
@@ -101,7 +101,7 @@
         <div id="cart">
             <div class="taste-header">
                 <a href="./login.html" class="user">
-                    <i class="fa fa-user-circle" id="circle"> Account</i>
+                    <i class="fa fa-user-circle" id="circle"> <span class="acc">Account</span></i>
                     
                 </a>
             </div>

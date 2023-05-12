@@ -21,12 +21,12 @@ const db = getDatabase(app);
 
   
 
-function writeOrders(orderNumber) {
+// function writeOrders(orderNumber) {
   
-  set(ref(db, 'orders/' + orderNumber), {
-    a: '1'
-  });
-}
+//   set(ref(db, 'orders/' + orderNumber), {
+//     a: '1'
+//   });
+// }
 
 console.log(foodItem);
 
@@ -67,7 +67,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+        var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
 
         cardTop.appendChild(star);
@@ -116,7 +120,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -162,7 +170,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -208,7 +220,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -255,7 +271,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -302,7 +322,11 @@ function displayItems(){
         var wish = document.createElement('i');
         wish.setAttribute('class','fa-regular fa-star add-to-wish');
         wish.setAttribute('id','wish');
-        wish.innerText= 'Add to wishlist';
+var wt = document.createElement('span');
+        wt.setAttribute('class','atw');
+        wt.innerText= 'Add to wishlist';
+
+        wish.appendChild(wt)
 
         cardTop.appendChild(star);
         cardTop.appendChild(heart);
@@ -611,14 +635,14 @@ document.getElementById('dispWish').addEventListener('click', wishToggle);
 var display = false;
 function cartToggle(){
     if(cartData.length > 0){
-        // document.getElementById('food-items').classList.toggle('food-items');
-        // document.getElementById('category-list').classList.toggle('food-items');
-        // document.getElementById('category-header').classList.toggle('toggle-category');
-        // document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
-        // document.getElementById('cart-page').classList.toggle('cart-toggle');
-        // document.getElementById('checkout').classList.toggle('cart-toggle');
+        document.getElementById('food-items').classList.toggle('food-items');
+        document.getElementById('category-list').classList.toggle('food-items');
+        document.getElementById('category-header').classList.toggle('toggle-category');
+        document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
+        document.getElementById('cart-page').classList.toggle('cart-toggle');
+        document.getElementById('checkout').classList.toggle('cart-toggle');
 
-        document.getElementById('food-items').display='none'
+        // document.getElementById('food-items').display='none'
         // document.getElementById('category-list').classList.toggle('food-items');
         // document.getElementById('category-header').classList.toggle('toggle-category');
         // document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
@@ -636,7 +660,7 @@ function cartToggle(){
 
 console.log(wishData);
 function wishToggle(){
-    if(display == false){
+    // if(display == false){
         document.getElementById('food-items').classList.toggle('food-items');
         document.getElementById('category-list').classList.toggle('food-items');
         document.getElementById('category-header').classList.toggle('toggle-category');
@@ -645,13 +669,13 @@ function wishToggle(){
         document.getElementById('checkout').classList.toggle('wish-toggle');
         display = !display;
         console.log(display)
-    }
-    else{
-        document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
-        document.getElementById('cart-page').classList.toggle('cart-toggle');
-        document.getElementById('wish-page').classList.toggle('wish-toggle');
-        document.getElementById('checkout').classList.toggle('cart-toggle');
-    }
+    // }
+    // else{
+    //     document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
+    //     document.getElementById('cart-page').classList.toggle('cart-toggle');
+    //     document.getElementById('wish-page').classList.toggle('wish-toggle');
+    //     document.getElementById('checkout').classList.toggle('cart-toggle');
+    // }
     
 }
 

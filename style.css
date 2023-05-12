@@ -2,6 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
+.ur-address, #cart-plus, .search, .offers, .acc, .atw{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.atw{
+    color: rgb(2, 27, 27);
+    font-weight: 500;
+    font-size: 18px;
+}
+
 footer{
     border-top: 1px solid black;
     padding-bottom: 30px;
